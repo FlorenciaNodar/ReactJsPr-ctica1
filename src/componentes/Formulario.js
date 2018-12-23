@@ -18,12 +18,33 @@ class Formulario extends Component {
     //     this.planCompletoRef = React.createRef();
     // }
 
+
     cotizarSeguro= (e) => { //Se implementa de ésta manera el método para no tener que escribir .bind(this) en los formularios
         e.preventDefault(); // se usa para que no muestre en la url los campos del formulario            
     //obtener los datos, crear el objeto y enviarlo al componente principal.
     //hay que crear un refs por cada campo
+    
+    //leer el  plan
+    const plan = this.planBasicoRef.current.checked ? 'basico' : 'completo';
 
-    console.log(this.marcaRef.current.value/*Se utiliza al current.value para acceder directamente al valor*/);
+    //obtenemos los datos
+    // console.log(this.marcaRef.current.value/*Se utiliza al current.value para acceder directamente al valor*/);
+    
+    //creamos el objeto
+    const infoAuto = {
+        marca: this.marcaRef.current.value,
+        anio: this.anioRef.current.value,
+        plan: plan
+    }
+
+    // console.log(infoAuto);
+
+    //enviar los datos al component principal
+    this.props.cotizarSeguro(infoAuto);
+
+    //resetear el formulario (opcional)
+    // e.currentTarget.reset(); 
+
     }
 
 render(){
