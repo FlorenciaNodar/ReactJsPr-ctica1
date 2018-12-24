@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Formulario from './Formulario';
 import {obtenerDiferenciaAnio, calcularMarca, obtenerPlan} from '../helpers/Helpers'; //Así se llama a una función que la exporta un .js
-
+import Resumen from './Resumen';
 class App extends Component {
 
   // constructor(props){
@@ -64,6 +64,10 @@ class App extends Component {
               titulo = "Cotizador de Seguro de auto"/>
         <div className="contenedor-formulario">
             <Formulario cotizarSegurosProp={this.cotizarSeguro} />
+            <Resumen 
+            datos= {this.state.datos}
+            resultado = {this.state.resultado}
+            />
         </div>
         </div>
        
