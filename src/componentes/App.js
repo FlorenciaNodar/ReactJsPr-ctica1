@@ -3,6 +3,7 @@ import Header from './Header';
 import Formulario from './Formulario';
 import {obtenerDiferenciaAnio, calcularMarca, obtenerPlan} from '../helpers/Helpers'; //Así se llama a una función que la exporta un .js
 import Resumen from './Resumen';
+import Resultado from './Resultado';
 class App extends Component {
 
   // constructor(props){
@@ -61,13 +62,14 @@ class App extends Component {
     return (
         <div className="contenedor">
             <Header
-              titulo = "Cotizador de Seguro de auto"/>
-        <div className="contenedor-formulario">
+            titulo = "Cotizador de Seguro de auto"/>
+            <div className="contenedor-formulario">
             <Formulario cotizarSegurosProp={this.cotizarSeguro} />
             <Resumen 
             datos= {this.state.datos}
             resultado = {this.state.resultado}
             />
+            <Resultado resultado ={this.state.resultado}/>
         </div>
         </div>
        
