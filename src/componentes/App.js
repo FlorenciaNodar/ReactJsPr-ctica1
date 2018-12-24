@@ -5,6 +5,18 @@ import {obtenerDiferenciaAnio, calcularMarca, obtenerPlan} from '../helpers/Help
 
 class App extends Component {
 
+  // constructor(props){
+  //   super(props);
+  //   this.state = {
+
+  //   }
+  // }
+  /*El state se hace en forma automática y también se puede realizar fuera del constructor*/
+  state = {
+    resultado: '',
+    datos: {}
+  }
+
   cotizarSeguro = (datos) =>{
     console.log(datos);
     const {marca,plan,anio} = datos; //se carga el modelo que recibimos por parámetro en constantes de App.js
@@ -29,6 +41,18 @@ class App extends Component {
     //dependiente del plan incrementar
     resultado = parseFloat(incrementoPlan * resultado).toFixed(); //para que sean solamente 2 dígitos
 
+    //creamos el objeto para guardar los datos
+    const datosAuto = {
+      marca: marca,
+      plan: plan,
+      anio: anio
+    }
+
+    //Seteamos los estados de cada atributo
+    this.setState({
+      resultado : resultado,
+       datos:datosAuto 
+    });
 
     console.log(resultado);
   }
